@@ -7,6 +7,7 @@ import Portfolio from "./components/Portfolio";
 import Packages from "./components/Packages";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Packages />
           <Testimonials />
           <Contact />
+          <Footer />
         </>
       )}
     </>
