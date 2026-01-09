@@ -14,8 +14,10 @@ function App() {
   const [introFinished, setIntroFinished] = useState(false);
 
   return (
-    <>
-      {!introFinished && <IntroSplash onFinish={() => setIntroFinished(true)} />}
+    <div className="overflow-x-hidden w-full">
+      {!introFinished && (
+        <IntroSplash onFinish={() => setIntroFinished(true)} />
+      )}
 
       {introFinished && (
         <>
@@ -30,7 +32,7 @@ function App() {
           <WhatsAppFloating />
         </>
       )}
-    </>
+    </div>
   );
 }
 
