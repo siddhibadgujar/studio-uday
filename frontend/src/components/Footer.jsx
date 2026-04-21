@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/config";
 
 function Footer() {
   const [visits, setVisits] = useState(0);
@@ -7,7 +8,7 @@ function Footer() {
   useEffect(() => {
     const trackVisit = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/stats/visit");
+        const { data } = await axios.get(`${API_BASE_URL}/api/stats/visit`);
         setVisits(data.totalVisits);
       } catch (error) {
         console.error("Error tracking visit:", error);

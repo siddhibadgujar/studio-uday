@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/config";
 
 function Testimonials() {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +13,7 @@ function Testimonials() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/reviews");
+        const { data } = await axios.get(`${API_BASE_URL}/api/reviews`);
         if (data && data.length > 0) {
           setReviews(data);
         } else {
@@ -45,7 +46,7 @@ function Testimonials() {
     if (!formData.name || !formData.comment) return;
     
     try {
-      await axios.post("http://localhost:5000/api/reviews", formData);
+      await axios.post(`${API_BASE_URL}/api/reviews`, formData);
       setFormData({ name: "", role: "", comment: "" });
       alert("Thank you! Your review has been submitted and is pending approval.");
     } catch (error) {

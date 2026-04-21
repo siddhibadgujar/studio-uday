@@ -9,6 +9,7 @@ import {
   FaClock
 } from "react-icons/fa";
 import axios from "axios";
+import API_BASE_URL from "../api/config";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ function Contact() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/contact", formData);
+      const res = await axios.post(`${API_BASE_URL}/api/contact`, formData);
       setSuccess(res.data.message);
       setFormData({
         name: "",

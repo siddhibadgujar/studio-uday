@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/config";
 
 function Packages() {
   const [packages, setPackages] = useState([]);
@@ -8,7 +9,7 @@ function Packages() {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/packages");
+        const { data } = await axios.get(`${API_BASE_URL}/api/packages`);
         if (data && data.length > 0) {
           setPackages(data);
         } else {

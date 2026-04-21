@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/config";
 
 function LatestStories() {
   const [stories, setStories] = useState([]);
@@ -10,7 +11,7 @@ function LatestStories() {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/stories");
+        const { data } = await axios.get(`${API_BASE_URL}/api/stories`);
         setStories(data);
       } catch (error) {
         console.error("Error fetching stories:", error);
